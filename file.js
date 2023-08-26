@@ -30,8 +30,9 @@ function display(){
 }
 
 
-/*addBookToLibrary("hob","jj","33","no");
-addBookToLibrary("sss","dsa","22","yes");*/
+addBookToLibrary("hob","jj","33","no");
+addBookToLibrary("sss","dsa","22","yes");
+addBookToLibrary("ksa","rara","50","no"); 
 
  
 
@@ -59,9 +60,8 @@ function othername() {
 function myFunction(){
         document.getElementById('demo').innerHTML="Paragraph Changed";
 }
-function card(){
-    
-    
+
+function card(){   
     /*document.getElementById("cards").innerHTML="Paragraph Changed";*/
     const container=document.getElementById("cards")
     
@@ -79,35 +79,58 @@ function card(){
     const name=document.createElement('name');
     name.innerHTML="Name:";
     div.appendChild(name);
+    name.classList.add("cardinfo");
 
     const author=document.createElement('author');
     author.innerHTML="Author:";
     div.appendChild(author);
-    
+    author.classList.add("cardinfo")
+
     const page=document.createElement('page');
     page.innerHTML="Pages:";
     div.appendChild(page);
+    page.classList.add("cardinfo")
 
     const read=document.createElement('read');
     read.innerHTML="Read:";
     div.appendChild(read);
+    read.classList.add("cardinfo")
+    
+    read.innerHTML+=myLibrary[k].read; /*Is done after read is made so delete isnt appended before "yes" or "no" */
+    
+    const deleteitem=document.createElement('deleteitem'); /*can also use button in place of deleteitem */
+    deleteitem.innerHTML="DELETE";
+    read.appendChild(deleteitem)
+    deleteitem.classList.add("cardinfo");
 
- 
+
+    deleteitem.id="deleteCard"; 
+    
+    deleteitem.addEventListener('click',function(){
+       
+
+        
+           
+
+
+    })
+
 
     name.innerHTML+=myLibrary[k].title;
     author.innerHTML+=myLibrary[k].book;
     page.innerHTML+=myLibrary[k].pages;
-    read.innerHTML+=myLibrary[k].read;
+    
 
     k++;
     display();
-
-    
 }
 btn.addEventListener('click',function(){
     card();
 
 });
+
+
+
 
   
 
@@ -117,6 +140,8 @@ new_book.addEventListener('click',function(){
     const forma=document.getElementById('forms').style.display="block";
     
 });
+
+
 
 function formInput(){
     const formname=document.getElementById('form-name');

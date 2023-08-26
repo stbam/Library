@@ -59,8 +59,34 @@ body{
     height: 300px;
     padding: 10px;
     display: grid;
+    justify-content: center;
+   
+    
+
     margin-top: 30px;
+    border-radius: 10px;
 }
+.cardinfo{
+    display: grid;
+    justify-content: center;
+    
+}
+
+read{
+     display: grid;
+    
+    
+}
+#deleteCard{
+    height: 30px;
+}
+#deleteCard:hover{
+    color: red;
+    user-select: none;
+    
+}
+
+
 #container_outer{
     display: flex;
     flex-direction: column;
