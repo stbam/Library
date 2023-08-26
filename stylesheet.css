@@ -1,0 +1,35 @@
+html{
+    min-height: 100%;
+    background-color: var(--main-bg-color);
+}
+header{
+    padding: 10px;
+}
+body{
+     margin: 0;
+     display: grid;
+     grid-template-rows: 1fr 1fr 4fr 1fr;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#outer{
+    display:flex;
+    justify-content: center;
+}
+#cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.cards{
+    background-color: bisque;
+    width: 280px;
+    height: 300px;
+    padding: 10px;
+    display: grid;
+    
+    
+}
