@@ -10,35 +10,62 @@
 <body>
     <header>
         <div class="container">
-            <div>Library</div>
-            <button>Login</button>
+            <h1>Library</h1>
+            <button id="loginbtn">Login</button>
         </div>
     </header>
 
 
 
-    
-    <div>   
+    <div class="ds">
+    <div id="container_outer">   
             <div id="outer">
-                <button id="add">+</button>
+                <button id="new_book">+</button>
             </div>
+
+            <form  id="forms">
+                    <div class="s">
+                        <label for="name">Name: </label>
+                        <input type="text" id="form-name" name="name"> <br>
+                    </div>
+                <div class="s"> 
+                    <label for="author">Author: </label>
+                    <input type="text"id="form-author" name="author"><br>
+                </div>
+                <div class="s">
+                    <label for="pages">Pages: </label>
+                    <input type="text" id="form-pages" name="pages"><br>
+                </div>
+                <div class="k">
+                    <label for="read">Read?:</label>
+                    <input type="radio" name="read" id="form-read">Yes</input>
+                    <input type="radio" name="read" id="form-read">No</input>
+                </div>
+                <div class="k">   
+                   <!--  <input type="submit" value="Submit" id="form-read" onclick="formInput">submit</input>-->
+                    <button type="button" onclick="formInput()" id="btn">Submit</button>
+                </div>
+
+
+            </form>
+
+
     </div>
+</div>
 
     
     <div id="cards">
-            <div id="bot" class="cards">
+         <!--  <div id="bot" class="cards">
                 
                  <div id="name" class="info">Name:</div>
                  <div id="author" class="info">Author:</div>
                  <div id="pages" class="info">Pages:</div>
                  <div id="read" class="info">Read:</div>
 
-            </div>
+            </div> -->
     </div>
 
-<div id="disp"></div>
-
-<button id="btn">click me baby</button>
+<!-- <button id="btn">click me baby</button> -->
 
 
 
@@ -62,6 +89,7 @@
 -->
 
 
-<script src="file.js" >/*document.getElementById("demo").style.display = "none";*/</script>
 </body>
+<script src="file.js" >/*document.getElementById("demo").style.display = "none";*/</script>
+
 </html>
