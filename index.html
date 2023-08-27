@@ -23,18 +23,18 @@
                 <button id="new_book">+</button>
             </div>
 
-            <form  id="forms">
+            <form  id="forms" onsubmit="return false;">
                     <div class="s">
                         <label for="form-name">Name: </label>
-                        <input type="text" id="form-name" name="name"> <br>
+                        <input type="text" id="form-name" name="name" required> <br>
                     </div>
                 <div class="s"> 
                     <label for="form-author">Author: </label>
-                    <input type="text"id="form-author" name="author"><br>
+                    <input type="text"id="form-author" name="author" required><br>
                 </div>
                 <div class="s">
                     <label for="form-pages">Pages: </label>
-                    <input type="text" id="form-pages" name="pages"><br>
+                    <input type="text" id="form-pages" name="pages" required><br>
                 </div>
                 <div class="k">
                     <label for="form-read">Read?:</label>
@@ -43,8 +43,8 @@
                 </div>
                
                 <div class="k">   
-                   <!--  <input type="submit" value="Submit" id="form-read" onclick="formInput">submit</input>-->
-                    <button type="button" onclick="formInput()" id="btn">Submit</button>
+                    <input type="submit" value="Submit" onclick="formInput()" id="btn" >submit</input> 
+                     <!-- <button type="button" onclick="formInput()" id="btn">Submit</button>-->
                 </div>
 
 
@@ -52,6 +52,7 @@
 
 
     </div>
+    
 </div>
 
     

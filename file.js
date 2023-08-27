@@ -30,29 +30,13 @@ function display(){
 }
 
 
-addBookToLibrary("hob","jj","33","no");
+/*addBookToLibrary("hob","jj","33","no");
 addBookToLibrary("sss","dsa","22","yes");
 addBookToLibrary("ksa","rara","50","no"); 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 function othername() {
-    var input = document.getElementById("userInput").value;
-    
+    var input = document.getElementById("userInput").value; 
     myLibrary[i]=input;
     i++;
 }
@@ -66,10 +50,7 @@ function card(){
     const container=document.getElementById("cards")
     
 
-
     const div = document.createElement('div');    
-   
-     
 
     div.classList.add("cards");
    
@@ -103,15 +84,8 @@ function card(){
     read.appendChild(deleteitem)
     deleteitem.classList.add("cardinfo");
 
-
-    deleteitem.id="deleteCard"; 
-    
+    deleteitem.id="deleteCard";  
     deleteitem.addEventListener('click',function(){
-       
-
-        
-           
-
 
     })
 
@@ -124,39 +98,46 @@ function card(){
     k++;
     display();
 }
+
 btn.addEventListener('click',function(){
-    card();
+    var form_name=document.getElementById('form-name').value;
+    var form_author=document.getElementById('form-author').value;
+    var form_pages=document.getElementById('form-pages').value;
+    
+    if(form_name.length!=0 && form_author.length!=0 && form_author.length!=0 && form_pages!=0){
+        card();
+    }
+    
+      /*displays card*/
 
 });
 
 
-
-
-  
-
-
+/*var checkButton = document.getElementById("btn");
+    checkButton.addEventListener("click", function() {
+    var inputElement = document.getElementById("form-name");
+    var inputLength = inputElement.value.length;
+    
+    
+    console.log("Input length:", inputLength);
+});*/
 
 new_book.addEventListener('click',function(){
     const forma=document.getElementById('forms').style.display="block";
     
 });
 
-
-
-function formInput(){
-    const formname=document.getElementById('form-name');
-    const formauthor=document.getElementById('form-author');
-    const formpages=document.getElementById('form-pages');
-    const formread=document.getElementById('form-read');
-console.log(formread.value)
-console.log(formauthor.value)
-
-    addBookToLibrary(formname.value,formauthor.value,formpages.value,formread.value)
-
-   /*console.log(myLibrary[3])*/ 
-
-
-
+function formInput(){ 
+    const formname=document.getElementById('form-name').value;
+    const formauthor=document.getElementById('form-author').value;
+    const formpages=document.getElementById('form-pages').value;
+    const formread=document.getElementById('form-read').value;
+    
+    if(formname.length!=0 && formauthor.length!=0 && formpages.length!=0 && formpages!=0){   
+        console.log(formread.value)
+        console.log(formauthor.value)
+        addBookToLibrary(formname,formauthor,formpages,formread)
+    }
 }
 
 /*const forma=document.getElementById('forms').style.display="none";*/
