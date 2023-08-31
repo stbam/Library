@@ -34,25 +34,26 @@
                 </div>
                 <div class="s">
                     <label for="form-pages">Pages: </label>
-                    <input type="text" id="form-pages" name="pages" required><br>
+                    <input type="number" id="form-pages" name="pages" required><br>
                 </div>
                 <div class="k">
                     <label for="form-read">Read?:</label>
-                    <input type="radio" name="read" id="form-read">Yes</input>
-                    <input type="radio" name="read" id="form-read" checked>No</input>
+                    <input type="radio" name="read" id="form-read" value="Yes">Yes</input>
+                    <input type="radio" name="read" id="form-read" value = "No">No</input>
                 </div>
                
                 <div class="k">   
-                    <input type="submit" value="Submit" onclick="formInput()" id="btn" >submit</input> 
+                    <input type="submit" value="Submit" onclick="formInput()" id="btn" ></input> 
                      <!-- <button type="button" onclick="formInput()" id="btn">Submit</button>-->
                 </div>
 
+              
 
             </form>
 
-
+          
     </div>
-    
+   
 </div>
 
     

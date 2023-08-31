@@ -44,8 +44,14 @@ body{
     justify-content: center;
 }
 #new_book{
+    background-color: rgb(209, 216, 218);
     width: 50px;
     height: 50px;
+    border-radius: 15px;
+    border: none;
+}
+#new_book:hover{
+    background-color: rgba(228, 233, 234, 0.898);
 }
 
 #cards{
@@ -60,7 +66,7 @@ body{
     padding: 10px;
     display: grid;
     justify-content: center;
-   
+   grid-template-rows: 1fr 1fr 1fr 2fr; /* creates more balanced space in .cards class*/
     
 
     margin-top: 30px;
@@ -71,16 +77,16 @@ body{
     justify-content: center;
     
 }
-
-read{
-     display: grid;
-    
-    
+toggle{
 }
-#deleteCard{
+toggle:hover{
+    color: red;
+    user-select: none;
+}
+#deleteitem{
     height: 30px;
 }
-#deleteCard:hover{
+deleteitem:hover{
     color: red;
     user-select: none;
     
@@ -101,6 +107,10 @@ read{
 .s{
     display: flex;
     justify-content: flex-end;
+    margin: 10px;
+    
+}
+#form-pages{
     
 }
 .k{
@@ -112,4 +122,6 @@ read{
     display: flex;
     justify-content: center;
     align-items: center;
+    
+
 }

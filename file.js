@@ -1,18 +1,20 @@
 const myLibrary = [];
 let i=0;
 var k=0;
-function Book(title,book,pages,read) {
+var object_incrementor=0; /*Used in Form input to give each item added to lbirary a number to delete when no longer in use.*/
+function Book(title,book,pages,read,data_attribute) {
   // the constructor...
   this.title=title;
   this.book=book;
   this.pages=pages;
   this.read=read;
+  this.data_attribute=data_attribute;
 
 }
-function addBookToLibrary(title,book,pages,read) {
+function addBookToLibrary(title,book,pages,read,data_attribute) {
   // do stuff here
   /*var input = document.getElementById("userInput").value;*/
-  const input=new Book(title,book,pages,read);
+  const input=new Book(title,book,pages,read,data_attribute);
   /*myLibrary.push(input);
   console.log(myLibrary[0])*/
   myLibrary[i]=input;
@@ -58,37 +60,102 @@ function card(){
     container.appendChild(div);
 
     const name=document.createElement('name');
-    name.innerHTML="Name:";
+    name.innerHTML="Name: ";
     div.appendChild(name);
     name.classList.add("cardinfo");
 
     const author=document.createElement('author');
-    author.innerHTML="Author:";
+    author.innerHTML="Author: ";
     div.appendChild(author);
     author.classList.add("cardinfo")
 
     const page=document.createElement('page');
-    page.innerHTML="Pages:";
+    page.innerHTML="Pages: ";
     div.appendChild(page);
     page.classList.add("cardinfo")
 
     const read=document.createElement('read');
-    read.innerHTML="Read:";
+   // read.innerHTML="Read:";
     div.appendChild(read);
     read.classList.add("cardinfo")
+
+    const innerhtml=document.createElement('toggle');
+    read.appendChild(innerhtml);
+    innerhtml.innerHTML="Read: ";
+    innerhtml.classList.add("cardinfo")
+    innerhtml.id="innerComment"
+    innerhtml.id=innerhtml.id + k;
     
-    read.innerHTML+=myLibrary[k].read; /*Is done after read is made so delete isnt appended before "yes" or "no" */
+
+    function displayRadio(){ 
+        var radioButtons = document.getElementsByName("read");
+          if (radioButtons[0].checked) {
+            innerhtml.innerHTML="Read: Read";    
+          }
+        else{
+            innerhtml.innerHTML="Read: Not Read";
+        }
+   //     }
+        
+    }
+    
+  //  read.innerHTML+=myLibrary[k].read; /*Is done after read is made so delete isnt appended before "yes" or "no" */
     
     const deleteitem=document.createElement('deleteitem'); /*can also use button in place of deleteitem */
     deleteitem.innerHTML="DELETE";
     read.appendChild(deleteitem)
     deleteitem.classList.add("cardinfo");
 
-    deleteitem.id="deleteCard";  
-    deleteitem.addEventListener('click',function(){
+  //  deleteitem.id="deleteCard";  
+    deleteitem.id=deleteitem.id + k;  //gives each a unique id :D
+   
 
-    })
+    
+/*IMPORTANT*/
+/* remove  deleteitem.addEventListener('click',function(){  */
+/* outer function to solve the issue of double clicking to delete a card ! */
 
+//    deleteitem.addEventListener('click',function(){
+          //  var data_to_delet=document.getElementById("deleteCard").parentElement.parentElement ; /*we can add nodeName to see what the node is */
+            
+            //const buttons=document.getElementById("deleteCard");
+            
+
+            
+            const buttonPressed= e =>{
+              console.log(e.target.innerHTML);
+              console.log(e.target.id)
+              console.log(e.target.tagName)
+
+              var data_to_delet=document.getElementById(e.target.id).parentElement.parentElement;
+              console.log(document.getElementById(e.target.id).parentElement.parentElement.remove());/* removes a node*/
+              
+              data_to_delet.innerHTML=' ';
+            }
+            deleteitem.addEventListener("click",buttonPressed); 
+          
+            
+            const Toggle= e =>{
+                var read_item=document.getElementById(e.target.id);
+                if(read_item.innerHTML=="Read: Read"){
+                        read_item.innerHTML="Read: Not Read";
+                }
+                else{
+                    read_item.innerHTML="Read: Read";
+                }
+               console.log(read_item.innerHTML)
+            }
+            innerhtml.addEventListener("click",Toggle)
+            
+        
+            
+
+
+             
+
+            //data_to_delet.innerHTML="fd"; /* */
+           // console.log(data_to_delet);
+    //})
 
     name.innerHTML+=myLibrary[k].title;
     author.innerHTML+=myLibrary[k].book;
@@ -96,7 +163,10 @@ function card(){
     
 
     k++;
+    displayRadio();
     display();
+
+    const forma=document.getElementById('forms').style.visibility="hidden";//duplicated here to hide form after submitting .
 }
 
 btn.addEventListener('click',function(){
@@ -113,6 +183,18 @@ btn.addEventListener('click',function(){
 });
 
 
+
+const radio=document.querySelectorAll('div');
+
+
+
+  /*  radio.forEach((item) => {
+        if (item.className=='k')
+     console.log(item.innerHTML);
+
+
+ });*/
+
 /*var checkButton = document.getElementById("btn");
     checkButton.addEventListener("click", function() {
     var inputElement = document.getElementById("form-name");
@@ -123,8 +205,9 @@ btn.addEventListener('click',function(){
 });*/
 
 new_book.addEventListener('click',function(){
-    const forma=document.getElementById('forms').style.display="block";
-    
+   // const forma=document.getElementById('forms').style.display="block";
+   const forma=document.getElementById('forms').style.visibility="visible";// reveals the hidden forms
+
 });
 
 function formInput(){ 
@@ -132,22 +215,27 @@ function formInput(){
     const formauthor=document.getElementById('form-author').value;
     const formpages=document.getElementById('form-pages').value;
     const formread=document.getElementById('form-read').value;
+    var data_attribute=object_incrementor; 
     
+/*console.log(data_attribute);
+console.log("Fsd")*/
+    object_incrementor++;
+
+
     if(formname.length!=0 && formauthor.length!=0 && formpages.length!=0 && formpages!=0){   
         console.log(formread.value)
         console.log(formauthor.value)
-        addBookToLibrary(formname,formauthor,formpages,formread)
+        addBookToLibrary(formname,formauthor,formpages,formread,data_attribute)
     }
 }
 
-/*const forma=document.getElementById('forms').style.display="none";*/
 
+/*const forma=document.getElementById('forms').style.display="none";*/ //when used it hides entire element making the flex move other elements around
+const forma=document.getElementById('forms').style.visibility="hidden";
 
 /*add.addEventListener('click',function(){
     
 }); */
-
-
 
 
 
@@ -171,9 +259,6 @@ btn.addEventListener('click', function(e){
 );
  */
 
-
-
- 
 
 
 
