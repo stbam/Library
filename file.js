@@ -25,9 +25,6 @@ function display(){
   
     for(let i =0;i < myLibrary.length;i++){
         console.log(myLibrary[i])
-        
-         
-
     }
 }
 
@@ -108,8 +105,6 @@ function card(){
 
   //  deleteitem.id="deleteCard";  
     deleteitem.id=deleteitem.id + k;  //gives each a unique id :D
-   
-
     
 /*IMPORTANT*/
 /* remove  deleteitem.addEventListener('click',function(){  */
@@ -146,22 +141,10 @@ function card(){
                console.log(read_item.innerHTML)
             }
             innerhtml.addEventListener("click",Toggle)
-            
-        
-            
-
-
-             
-
-            //data_to_delet.innerHTML="fd"; /* */
-           // console.log(data_to_delet);
-    //})
-
     name.innerHTML+=myLibrary[k].title;
     author.innerHTML+=myLibrary[k].book;
     page.innerHTML+=myLibrary[k].pages;
     
-
     k++;
     displayRadio();
     display();
@@ -177,33 +160,9 @@ btn.addEventListener('click',function(){
     if(form_name.length!=0 && form_author.length!=0 && form_author.length!=0 && form_pages!=0){
         card();
     }
-    
-      /*displays card*/
-
 });
 
-
-
 const radio=document.querySelectorAll('div');
-
-
-
-  /*  radio.forEach((item) => {
-        if (item.className=='k')
-     console.log(item.innerHTML);
-
-
- });*/
-
-/*var checkButton = document.getElementById("btn");
-    checkButton.addEventListener("click", function() {
-    var inputElement = document.getElementById("form-name");
-    var inputLength = inputElement.value.length;
-    
-    
-    console.log("Input length:", inputLength);
-});*/
-
 new_book.addEventListener('click',function(){
    // const forma=document.getElementById('forms').style.display="block";
    const forma=document.getElementById('forms').style.visibility="visible";// reveals the hidden forms
@@ -217,8 +176,6 @@ function formInput(){
     const formread=document.getElementById('form-read').value;
     var data_attribute=object_incrementor; 
     
-/*console.log(data_attribute);
-console.log("Fsd")*/
     object_incrementor++;
 
 
@@ -232,23 +189,6 @@ console.log("Fsd")*/
 
 /*const forma=document.getElementById('forms').style.display="none";*/ //when used it hides entire element making the flex move other elements around
 const forma=document.getElementById('forms').style.visibility="hidden";
-
-/*add.addEventListener('click',function(){
-    
-}); */
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 function alertFunction(){
         alert("Yoy you did it !")
